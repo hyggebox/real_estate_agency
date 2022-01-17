@@ -9,11 +9,11 @@ class FlatAdmin(admin.ModelAdmin):
     list_editable = ['new_building']
     readonly_fields = ['created_at']
     list_filter = ['new_building', 'rooms_number', 'has_balcony', 'active']
-    raw_id_fields = ("liked_by",)
+    raw_id_fields = ('liked_by',)
 
 
 class ComplaintAdmin(admin.ModelAdmin):
-    raw_id_fields = ("flat",)
+    raw_id_fields = ('flat',)
 
 
 admin.site.register(Flat, FlatAdmin)
