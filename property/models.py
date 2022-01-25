@@ -7,12 +7,6 @@ from django.contrib.auth.models import User
 
 
 class Flat(models.Model):
-    owner = models.CharField('ФИО владельца', max_length=200)
-    owners_phonenumber = models.CharField('Номер владельца', max_length=20)
-    valid_owners_phonenumber = PhoneNumberField(
-        'Нормализованный номер владельца',
-        null=True,
-        blank=True)
     created_at = models.DateTimeField(
         'Когда создано объявление',
         default=timezone.now,
