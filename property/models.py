@@ -48,7 +48,7 @@ class Flat(models.Model):
         null=True,
         blank=True,
         db_index=True)
-    new_building = models.NullBooleanField('Новостройка')
+    new_building = models.NullBooleanField('Новостройка', db_index=True)
     liked_by = models.ManyToManyField(User,
                                       verbose_name='Кто лайкнул',
                                       related_name='liked_flats',
@@ -73,11 +73,12 @@ class Complaint(models.Model):
 
 
 class Owner(models.Model):
-    name = models.CharField('ФИО владельца', max_length=50)
+    name = models.CharField('ФИО владельца', max_length=50, db_index=True)
     phonenumber = models.CharField('Номер владельца', max_length=20)
     valid_phonenumber = PhoneNumberField('Нормализованный номер владельца',
                                          null=True,
-                                         blank=True)
+                                         blank=True,
+                                         db_index=True)
     flats = models.ManyToManyField(Flat,
                                    verbose_name='Квартиры собственника',
                                    related_name='owners',
